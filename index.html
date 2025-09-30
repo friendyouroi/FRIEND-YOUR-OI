@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRIEND YOUR OI - Crypto से असली अपना रुपया 🇮🇳</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .highlight {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .investment-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .investment-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .investment-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #2E7D32, #1B5E20);
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 30%;
+            min-width: 280px;
+            margin: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        .testimonials {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .testimonial-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffcc00;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+        
+        .upi-id {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Timer Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .timer-display {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 30px 0;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .timer-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .timer-message {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+
+        .close-button {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: #ffd633;
+            transform: scale(1.05);
+        }
+
+        .payment-confirmation {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .timer-display {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FRIEND YOUR OI</h1>
+            <div class="tagline">Crypto से असली अपना रुपया 🇮🇳</div>
+            <p>आपको मात्र <span class="highlight">₹10</span> इन्वेस्ट करने के बाद। उसके बाद फिर कमाल देखिए। 🎁</p>
+            <p>अभी शुरुआत हुई है, पैसा बनेगा! धमाकेदार 10 Invest!, जबरदस्त फायदा 6***
+।</p>
+        </header>
+        
+        <section class="investment-section">
+            <h2 class="investment-title">अपना ₹10 इन्वेस्ट करें</h2>
+            <div class="investment-amount">₹10</div>
+            <p>बस ₹10 के साथ शुरुआत करें और क्रिप्टो दुनिया में अपनी किस्मत बदलें!</p>
+            <button id="paymentButton" class="cta-button">अभी इन्वेस्ट करें</button>
+            <div id="paymentConfirmation" class="payment-confirmation">
+                <p>✅ आपका भुगतान सफलतापूर्वक प्राप्त हो गया है!</p>
+                <p>कृपया 2 घंटे के टाइमर के पूरा होने का इंतज़ार करें।</p>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">तेजी से बढ़ोतरी</h3>
+                <p>छोटे निवेश से बड़े रिटर्न की संभावना</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">सुरक्षित</h3>
+                <p>आपका निवेश सुरक्षित और प्रोटेक्टेड</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3 class="feature-title">वैश्विक पहुंच</h3>
+                <p>पूरी दुनिया में फैलने वाला प्लेटफॉर्म</p>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <h2 class="testimonial-title">लोग क्या कह रहे हैं</h2>
+            <div class="testimonial">
+                "मैंने सिर्फ ₹10 इन्वेस्ट किए और 2 घण्टा में ₹2*** कमाए! यह सच में कमाल है।" - राहुल, दिल्ली
+            </div>
+            <div class="testimonial">
+                "इतना आसान प्लेटफॉर्म कभी नहीं देखा। बस ₹10 और फिर कमाल!" - प्रिया, मुंबई
+            </div>
+            <div class="testimonial">
+                "शुरुआत में मुझे विश्वास नहीं हुआ, लेकिन अब मैं रोज कमा रहा हूं। धन्यवाद FRIEND YOUR OI!" - अमित, बैंगलोर
+            </div>
+        </section>
+        
+        <section id="upi-section" class="investment-section">
+            <h2 class="investment-title">अपना निवेश करें</h2>
+            <p>नीचे दिए गए UPI ID पर ₹10 भेजें और अपना निवेश शुरू करें:</p>
+            <div class="upi-id">friendyouroi@ptyes</div>
+            <p>UPI ID को कॉपी करें और अपने PhonePe, Google Pay या Paytm में पेमेंट करें।</p>
+            <button id="copyUpiButton" class="cta-button">UPI ID कॉपी करें</button>
+        </section>
+        
+        <footer>
+            <div class="contact-info">
+                <p>संपर्क करें: friendyouroi@ptyes</p>
+                <p>FRIEND YOUR OI - आपका विश्वसनीय क्रिप्टो पार्टनर</p>
+            </div>
+            <p>© 2023 FRIEND YOUR OI. सर्वाधिकार सुरक्षित।</p>
+        </footer>
+    </div>
+
+    <!-- Timer Modal -->
+    <div id="timerModal" class="modal">
+        <div class="modal-content">
+            <h2 class="timer-title">आपका निवेश प्रोसेस हो रहा है</h2>
+            <div id="timerDisplay" class="timer-display">02:00:00</div>
+            <p class="timer-message">कृपया 2 घंटे तक प्रतीक्षा करें। इसके बाद आपको अपने रिटर्न प्राप्त होंगे।</p>
+            <button id="closeModalButton" class="close-button">ठीक है</button>
+        </div>
+    </div>
+
+    <script>
+        // Copy UPI ID to clipboard
+        document.getElementById('copyUpiButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            const upiId = 'friendyouroi@ptyes';
+            
+            // Create a temporary textarea to copy text
+            const textArea = document.createElement('textarea');
+            textArea.value = upiId;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Change button text temporarily
+            const button = this;
+            const originalText = button.textContent;
+            button.textContent = 'UPI ID कॉपी हो गया!';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        });
+
+        // Timer functionality
+        const paymentButton = document.getElementById('paymentButton');
+        const timerModal = document.getElementById('timerModal');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const paymentConfirmation = document.getElementById('paymentConfirmation');
+
+        let timerInterval;
+        let timerRunning = false;
+
+        // Check if there's an active timer in localStorage
+        window.addEventListener('load', function() {
+            const savedEndTime = localStorage.getItem('timerEndTime');
+            if (savedEndTime) {
+                const endTime = parseInt(savedEndTime);
+                const now = new Date().getTime();
+                
+                if (endTime > now) {
+                    // Timer is still running
+                    startTimer(endTime);
+                    paymentConfirmation.style.display = 'block';
+                } else {
+                    // Timer has expired
+                    localStorage.removeItem('timerEndTime');
+                }
+            }
+        });
+
+        paymentButton.addEventListener('click', function() {
+            // Simulate payment process
+            paymentConfirmation.style.display = 'block';
+            
+            // Set timer for 2 hours (7200000 milliseconds)
+            const twoHours = 2 * 60 * 60 * 1000;
+            const endTime = new Date().getTime() + twoHours;
+            
+            // Save end time to localStorage
+            localStorage.setItem('timerEndTime', endTime.toString());
+            
+            // Start the timer
+            startTimer(endTime);
+        });
+
+        function startTimer(endTime) {
+            if (timerRunning) return;
+            
+            timerRunning = true;
+            timerModal.style.display = 'flex';
+            
+            timerInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+                
+                if (distance < 0) {
+                    // Timer expired
+                    clearInterval(timerInterval);
+                    timerDisplay.textContent = "00:00:00";
+                    timerRunning = false;
+                    localStorage.removeItem('timerEndTime');
+                    
+                    // Update modal content when timer completes
+                    document.querySelector('.timer-title').textContent = "आपका निवेश पूरा हो गया है!";
+                    document.querySelector('.timer-message').textContent = "अब आप अपने रिटर्न प्राप्त कर सकते हैं।";
+                    
+                    return;
+                }
+                
+                // Calculate hours, minutes and seconds
+                const hours = Math.floor(distance / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result
+                timerDisplay.textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+            }, 1000);
+        }
+
+        closeModalButton.addEventListener('click', function() {
+            timerModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
